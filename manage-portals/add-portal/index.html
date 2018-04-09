@@ -14,7 +14,7 @@
         h2 {color: #006900;}
         h3 {color: #006900;}
         h6 {color: #00ff00;}
-        table {border: 0px solid #00ff00;margin-left:auto;margin-right:auto;}
+        table {border: 0 solid #00ff00;margin-left:auto;margin-right:auto;}
         th {padding: 10px;border: 4px solid #006900;text-align:center}
     </style>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
       <th style="text-align:center"><a href="/althub/manage-portals/add-portal/">Add Portal</a></th>
       <th style="text-align:center"><a href="/althub/manage-portals/remove-portal/">Remove Portal</a></th>
       <th style="text-align:center"><a href="/althub/manage-portals/view-portals/">View Portals</a></th>
-      <th style="text-align:center"><a href="/althub/manage-portals/add-user/">Add User</a></th>
+      <th style="text-align:center"><a href="https://lunartiger.github.io/AltspaceVR/teleportHub/manage-portals/add-user/">Add User</a></th>
   </tr>
 </table>
 <h2 id="submit">Space Submissions</h2>
@@ -59,9 +59,30 @@
         <label for="portalImage">Image URL:</label>
         <input type="text" class="form-control" id="portalImage">
     </div>
+    <div class="form-group">
+        <label for="portalRimColor">Portal Rim Color ( hex code ):</label>
+        <input type="text" class="form-control" id="portalRimColor">
+    </div>
+    <div class="form-group">
+        <label for="portalBackColor">Portal Back Color ( hex code ):</label>
+        <input type="text" class="form-control" id="portalBackColor">
+    </div>
+    <div class="form-group">
+        <label for="portalMobileHide">Hide On Mobile:</label>
+        <input type="checkbox" class="form-control" id="portalMobileHide">
+    </div>
+    <div class="form-group">
+        <label for="dizzyNessDisclaimer">Include Dizzyness Disclaimer:</label>
+        <input type="checkbox" class="form-control" id="dizzyNessDisclaimer">
+    </div>
     <div class="btn btn-primary" id="addPortal">
         Add Portal
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
 
 
@@ -75,6 +96,10 @@
             portalName:document.getElementById('portalName').value,
             portalSpaceId:document.getElementById('portalSpaceId').value,
             portalImage:document.getElementById('portalImage').value,
+            rimColor:document.getElementById('portalRimColor').value,
+            backColor:document.getElementById('portalBackColor').value,
+            hiddenOnMobile:document.getElementById('portalMobileHide').checked,
+            dizzyNessDisclaimer:document.getElementById('dizzyNessDisclaimer').checked
         };
         socket.emit('add-portal',data);
         document.getElementById('formContainer').innerHTML = '<h4>Request Submitted. Thank You!</h4>'
@@ -85,7 +110,7 @@
     <table>
         <tr>
             <th><a href='#top'>To Top</a></th>
-            <th style='width: 200px;border: 0px;'></th>
+            <th style='width: 200px;border: 0px;'><p style="font-size:65%;">Last updated: 26/3/2018 1:09 UTC</p></th>
             <th><a href="/althub">Home</a></th>
         </tr>
     </table>
