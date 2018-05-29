@@ -15,6 +15,7 @@
 			h6 {color: #00ff00;}
 			table {border: 0 solid #00ff00;margin-left:auto;margin-right:auto;}
 			th {padding: 10px;border: 4px solid #006900;text-align:center}
+			div {text-align:center;background-color: #000000;color: #00ff00;}
 		</style>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,12 +29,13 @@
 		<br>
 		<h3><a href='manage-portals'>If you have early access click here</a></h3>
 		<div class='container' id='portalContainer'></div>
+		<hr style="height:50px; visibility:hidden;" />
 		<script src="https://shanesedit.org:8008/socket.io/socket.io.js"></script>
 		<script type="text/javascript">
 			var socket = io.connect('https://shanesedit.org:8008');
 			socket.emit('portals');
 			socket.on('portals',function(msg){
-				document.getElementById('portalContainer').innerHTML = '<pre style="text-align: left">'+JSON.stringify(msg,null,4)+'</pre>';
+				document.getElementById('portalContainer').innerHTML = '<pre style="text-align: center">'+JSON.stringify(msg,null,4)+'</pre>';
 			})
 		</script>
 	</body>
