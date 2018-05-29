@@ -15,7 +15,7 @@
 			h6 {color: #00ff00;}
 			table {border: 0 solid #00ff00;margin-left:auto;margin-right:auto;}
 			th {padding: 10px;border: 4px solid #006900;text-align:center}
-			div {text-align:center;background-color: #000000;color: #00ff00;}
+			hr {border-top: 1px dashed #006900;border-bottom: 0;border-left: 0;border-right: 0;}
 		</style>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +24,9 @@
 	</head>
 	<body>
 		<h1><a href="altspace://account.altvr.com/api/spaces/lunar-s-teleport-hub">Lunar's Teleport Hub</a></h1>
-		<br>
+		<hr /><br>
 		<h2>Please stand by while page is constructed</h2>
 		<br>
-		<h3><a href='manage-portals'>If you have early access click here</a></h3>
 		<div class='container' id='portalContainer'></div>
 		<hr style="height:50px; visibility:hidden;" />
 		<script src="https://shanesedit.org:8008/socket.io/socket.io.js"></script>
@@ -35,7 +34,7 @@
 			var socket = io.connect('https://shanesedit.org:8008');
 			socket.emit('portals');
 			socket.on('portals',function(msg){
-				document.getElementById('portalContainer').innerHTML = '<pre style="text-align:center;background-color: #000000;color: #00ff00;">'+JSON.stringify(msg,null,4)+'</pre>';
+				document.getElementById('portalContainer').innerHTML = '<pre style="text-align:center;background-color: #000000;color: #00ff00;border: 0px;">'+JSON.stringify(msg)+'</pre>';
 			})
 		</script>
 	</body>
@@ -44,7 +43,7 @@
 			<tr>
 				<th><a href='#top'>To Top</a></th>
 				<th style='width: 200px;border: 0px;'><p style="font-size:65%;"></th>
-				<th><a href="/althub">Home</a></th>
+				<th><a href="manage-portals">Edit Portals</a></th>
 			</tr>
 		</table>
 	</footer>
