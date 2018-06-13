@@ -23,7 +23,7 @@
 		<meta name="Lunar's 2D Teleport Hub" content="Lunar's 2D Teleport Hub">
 	</head>
 	<body>
-		<h1><a href="altspace://account.altvr.com/api/spaces/lunars-hub">Lunar's Teleport Hub</a></h1>
+		<h1><a href="altspace://account.altvr.com/api/spaces/lunars-hub">Lunar's Hub</a></h1>
 		<hr /><br>
 		<h2>Please stand by while page is constructed</h2>
 		<br>
@@ -36,7 +36,7 @@
     		socket.on('portals',function(msg){
     		    document.getElementById('portalContainer').innerHTML += "<h3>Featured Spaces</h3>";
     		    for (count = 0; count < msg.portals.length; count++){
-    		        document.getElementById('portalContainer').innerHTML += "<p><a href=window.Alt.HtmlView.FollowAltspaceLink('altspace://account.altvr.com/api/spaces/"+msg.portals[count].space_id+"')>"+msg.portals[count].name+"</a></p>"; 
+    		        document.getElementById('portalContainer').innerHTML += "<p><a href=altspace.open('altspace://account.altvr.com/api/spaces/"+msg.portals[count].space_id+"')>"+msg.portals[count].name+"</a></p>"; 
     		    }
     		    //document.getElementById('portalContainer').innerHTML = '<pre style="text-align:center;background-color: #000000;color: #00ff00;border: 0px;">'+JSON.stringify(msg,null,4)+'</pre>';
     		})
