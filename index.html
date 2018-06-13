@@ -36,7 +36,7 @@
     		socket.on('portals',function(msg){
     		    document.getElementById('portalContainer').innerHTML += "<h3>Featured Spaces</h3>";
     		    for (count = 0; count < msg.portals.length; count++){
-    		        document.getElementById('portalContainer').innerHTML += "<p><button type='button' onClick="+window.Alt.HtmlView.FollowAltspaceLink('altspace://account.altvr.com/api/spaces/'+msg.portals[count].space_id)+">"+msg.portals[count].name+"</button></p>"; 
+    		        document.getElementById('portalContainer').innerHTML += "id: "+msg.portals[count].space_id)+" Name: "+msg.portals[count].name; 
     		    }
     		    //document.getElementById('portalContainer').innerHTML = '<pre style="text-align:center;background-color: #000000;color: #00ff00;border: 0px;">'+JSON.stringify(msg,null,4)+'</pre>';
     		})
