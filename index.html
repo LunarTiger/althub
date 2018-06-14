@@ -51,6 +51,9 @@
 				});
 				for (count = 0; count < msg.children.length; count++){
 					document.getElementById('portalContainer').innerHTML += "<a href='#"+msg.children[count].user+"'>"+msg.children[count].user+"'s Spaces</a>&nbsp;&nbsp;"
+					if (count < msg.children.length){
+						document.getElementById('portalContainer').innerHTML += "|&nbsp;&nbsp;"
+					}
 				}
 				document.getElementById('portalContainer').innerHTML += "<hr />"
 				document.getElementById('portalContainer').innerHTML += "<h2>Featured Spaces</h2>";
