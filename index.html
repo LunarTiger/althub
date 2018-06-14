@@ -31,9 +31,9 @@
 			function makeButton(name,space){
 				var button = document.createElement('button');
 				button.innerHTML = name;
-				button.id = space
+				button.id = space;
 				document.getElementById('portalContainer').appendChild(button);
-				document.getElementById('portalContainer').innerHTML += "<br>"
+				document.getElementById('portalContainer').innerHTML += "<br>";
 			}
 			var socket = io.connect('https://shanesedit.org:8008');
 			socket.emit('portals');
@@ -45,17 +45,17 @@
 							window.Alt.HtmlView.FollowAltspaceLink(url);
 						}
 						else{
-							window.open('altspace://account.altvr.com/api/spaces/' + e.target.id, '_self')
+							window.open('altspace://account.altvr.com/api/spaces/' + e.target.id, '_self');
 						}
 					}
 				});
 				for (count = 0; count < msg.children.length; count++){
-					document.getElementById('portalContainer').innerHTML += "<a href='#"+msg.children[count].user+"'>"+msg.children[count].user+"'s Spaces</a>"
+					document.getElementById('portalContainer').innerHTML += "<a href='#"+msg.children[count].user+"'>"+msg.children[count].user+"'s Spaces</a>";
 					if (count < (msg.children.length-1)){
-						document.getElementById('portalContainer').innerHTML += "&nbsp;&nbsp;|&nbsp;&nbsp;"
+						document.getElementById('portalContainer').innerHTML += "&nbsp;&nbsp;|&nbsp;&nbsp;";
 					}
 				}
-				document.getElementById('portalContainer').innerHTML += "<hr /><br>"
+				document.getElementById('portalContainer').innerHTML += "<hr /><br>";
 				document.getElementById('portalContainer').innerHTML += "<h2>Featured Spaces</h2>";
 				for (count = 0; count < msg.portals.length; count++){
 					makeButton(msg.portals[count].name,msg.portals[count].space_id);
