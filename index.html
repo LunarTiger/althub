@@ -37,7 +37,8 @@
     		    document.getElementById('portalContainer').innerHTML += "<h2>Featured Spaces</h2>";
     		    for (count = 0; count < msg.portals.length; count++){
     		    	//document.getElementById('portalContainer').innerHTML += "<p>"+msg.portals[count].name+"</p>";
-    		    	var button = document.createElemnt('button');
+    		    	var button = document.createElement('button');
+    		    	button.innerHTML = msg.portals[count].name;
     		    	button.addEventListener('click',function(){
     		    		var url = 'altspace://account.altvr.com/api/spaces/' + msg.portals[count].space_id;
     		    		window.Alt.HtmlView.FollowAltspaceLink(url);
