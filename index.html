@@ -37,11 +37,12 @@
     		    document.getElementById('portalContainer').innerHTML += "<h2>Featured Spaces</h2>";
     		    for (count = 0; count < msg.portals.length; count++){
     		    	//document.getElementById('portalContainer').innerHTML += "<p>"+msg.portals[count].name+"</p>";
-    		        document.getElementById('portalContainer').innerHTML += "<p><button type='button' name='"+msg.portals[count].space_id+"'>"+msg.portals[count].name+"</button></p>";
-    		        document.getElementsByName(msg.portals[count].space_id).addEventListener('mouseup', function(){
-    		        	var url = 'altspace://account.altvr.com/api/spaces/' + msg.portals[count].space_id;
-    		        	window.Alt.HtmlView.FollowAltspaceLink(url);
-    		        });
+    		    	var button = document.createElemnt('button');
+    		    	button.addEventListener('click',function(){
+    		    		var url = 'altspace://account.altvr.com/api/spaces/' + msg.portals[count].space_id;
+    		    		window.Alt.HtmlView.FollowAltspaceLink(url);
+    		    	});
+    		        document.getElementById('portalContainer').appendChild(button);
     		    }
     		    //document.getElementById('portalContainer').innerHTML = '<pre style="text-align:center;background-color: #000000;color: #00ff00;border: 0px;">'+JSON.stringify(msg,null,4)+'</pre>';
     		})
