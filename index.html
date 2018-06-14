@@ -31,13 +31,23 @@
 		<hr style="height:50px; visibility:hidden;" />
 		<script src="https://shanesedit.org:8008/socket.io/socket.io.js"></script>
 		<script type="text/javascript">
+			function makeButton(name,space){
+				var button = document.createElement('button');
+				button.innerHTML = name;
+				button.addEventListener('click',function(){
+					var url = 'altspace://account.altvr.com/api/spaces/'+space;
+					window.Alt.HtmlView.FollowAltspaceLink(url);
+				});
+				document.getElementById('portalContainer').appendChild(button);
+				document.getElementById('portalContainer').innerHTML += "<br>"
+			}
     		var socket = io.connect('https://shanesedit.org:8008');
     		socket.emit('portals');
     		socket.on('portals',function(msg){
     		    document.getElementById('portalContainer').innerHTML += "<h2>Featured Spaces</h2>";
     		    for (count = 0; count < msg.portals.length; count++){
     		    	//document.getElementById('portalContainer').innerHTML += "<p>"+msg.portals[count].name+"</p>";
-    		    	var button = document.createElement('button');
+    		    	/*var button = document.createElement('button');
     		    	button.innerHTML = msg.portals[count].name;
     		    	button.id = msg.portals[count].space_id;
     		    	button.addEventListener('click',function(e){
@@ -45,8 +55,10 @@
     		    		window.Alt.HtmlView.FollowAltspaceLink(url);
     		    	});
     		        document.getElementById('portalContainer').appendChild(button);
-    		        document.getElementById('portalContainer').innerHTML += "<br>"
+    		        document.getElementById('portalContainer').innerHTML += "<br>"*/
+    		        makeButton(msg.portals[count].name,msg.portals[count].space_id);
     		    }
+    		    //document.getElementById('portalContainer').innerHTML = "<h2>Nothing To See Here</h2>";
     		    //document.getElementById('portalContainer').innerHTML = '<pre style="text-align:center;background-color: #000000;color: #00ff00;border: 0px;">'+JSON.stringify(msg,null,4)+'</pre>';
     		})
 		</script>
