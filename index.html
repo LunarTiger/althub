@@ -54,7 +54,7 @@
     		    for (count = 0; count < msg.children.length; count++){
     		    	document.getElementById('portalContainer').innerHTML += "<h2>"+msg.children[count].user+"'s Spaces</h2>";
     		    	for (interval = 0; interval < msg.children[count].portals.length; interval++){
-    		    		makeButton(msg.children[count].portals[interval].name,msg.children[count].portals[interval].name);
+    		    		makeButton(msg.children[count].portals[interval].name,msg.children[count].portals[interval].space_id);
     		    	}
     		    }
     		    //document.getElementById('portalContainer').innerHTML = "<h2>Nothing To See Here</h2>";
