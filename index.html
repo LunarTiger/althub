@@ -23,10 +23,7 @@
 		<meta name="Lunar's 2D Teleport Hub" content="Lunar's 2D Teleport Hub">
 	</head>
 	<body>
-		<h1><a href='altspace://account.altvr.com/api/spaces/lunars-hub'>Lunar's Hub</a></h1>
-		<hr /><br>
-		<h2>Please stand by while page is constructed</h2>
-		<br>
+		<h1><a href='altspace://account.altvr.com/api/spaces/lunars-hub'>Lunar's Hub</a></h1><br>
 		<section id='portalContainer' style='text-align:center;background-color: #000000;color: #00ff00;border: 0px;'></section>
 		<hr style="height:50px; visibility:hidden;" />
 		<script src="https://shanesedit.org:8008/socket.io/socket.io.js"></script>
@@ -42,9 +39,14 @@
     		socket.emit('portals');
     		socket.on('portals',function(msg){
     			document.getElementById('portalContainer').addEventListener('click',function(e){
-    				if ((e.target.type = 'submit') && (e.target.id != null)) {
-    					var url = 'altspace://account.altvr.com/api/spaces/' + e.target.id;
-    					window.Alt.HtmlView.FollowAltspaceLink(url);
+    				if (e.target.type == 'submit') {
+    					if (window.altspace && window.altspace.inClient) {
+    						var url = 'altspace://account.altvr.com/api/spaces/' + e.target.id;
+    						window.Alt.HtmlView.FollowAltspaceLink(url);
+    					}
+    					else{
+    						window.open('altspace://account.altvr.com/api/spaces/' + e.target.id, '_self')
+    					}
     				}
     			});
     		    document.getElementById('portalContainer').innerHTML += "<h2>Featured Spaces</h2>";
