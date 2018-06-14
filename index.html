@@ -39,11 +39,13 @@
     		    	//document.getElementById('portalContainer').innerHTML += "<p>"+msg.portals[count].name+"</p>";
     		    	var button = document.createElement('button');
     		    	button.innerHTML = msg.portals[count].name;
-    		    	button.addEventListener('click',function(){
-    		    		var url = 'altspace://account.altvr.com/api/spaces/' + msg.portals[count].space_id;
+    		    	button.id = msg.portals[count].space_id;
+    		    	button.addEventListener('click',function(e){
+    		    		var url = 'altspace://account.altvr.com/api/spaces/' + e.target.id;
     		    		window.Alt.HtmlView.FollowAltspaceLink(url);
     		    	});
     		        document.getElementById('portalContainer').appendChild(button);
+    		        document.getElementById('portalContainer').innerHTML += "<br>"
     		    }
     		    //document.getElementById('portalContainer').innerHTML = '<pre style="text-align:center;background-color: #000000;color: #00ff00;border: 0px;">'+JSON.stringify(msg,null,4)+'</pre>';
     		})
