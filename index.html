@@ -38,7 +38,7 @@
     		    for (count = 0; count < msg.portals.length; count++){
     		    	//document.getElementById('portalContainer').innerHTML += "<p>"+msg.portals[count].name+"</p>";
     		        document.getElementById('portalContainer').innerHTML += "<p><button type='button' name='"+msg.portals[count].space_id+"'>"+msg.portals[count].name+"</button></p>";
-    		        goButton.addEventListener('mouseup', function(){
+    		        msg.portals[count].space_id.addEventListener('mouseup', function(){
     		        	var url = 'altspace://account.altvr.com/api/spaces/' + msg.portals[count].space_id;
     		        	window.Alt.HtmlView.FollowAltspaceLink(url);
     		        });
