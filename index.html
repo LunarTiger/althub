@@ -50,9 +50,9 @@
 					}
 				});
 				for (count = 0; count < msg.children.length; count++){
-					document.getElementById('portalContainer').innerHTML += "<a href='#"+msg.children[count].user+"' style='white-space: nowrap'>"+msg.children[count].user+"'s Spaces</a>&nbsp;&nbsp;"
+					document.getElementById('portalContainer').innerHTML += "<a style='white-space: nowrap' href='#"+msg.children[count].user+"'>"+msg.children[count].user+"'s Spaces</a>"
 					if (count < (msg.children.length-1)){
-						document.getElementById('portalContainer').innerHTML += "|&nbsp;&nbsp;"
+						document.getElementById('portalContainer').innerHTML += "&nbsp;&nbsp;|&nbsp;&nbsp;"
 					}
 				}
 				document.getElementById('portalContainer').innerHTML += "<hr />"
