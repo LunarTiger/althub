@@ -24,7 +24,7 @@
 	</head>
 	<body>
 		<h1><a href='altspace://account.altvr.com/api/spaces/lunars-hub'><button type="button" name="hub">Lunar's Hub</button></a></h1><br><hr />
-		<section id='portalContainer' style='text-align:center;background-color: #000000;color: #00ff00;border: 0px;'></section>
+		<section id='portalContainer' style='text-align:center;background-color: #000000;color: #00ff00;border: 0px;'><h2>Please wait while<br>the site builds itself.</h2></section>
 		<hr style="height:50px; visibility:hidden;" />
 		<script src="https://shanesedit.org:8008/socket.io/socket.io.js"></script>
 		<script type="text/javascript">
@@ -49,6 +49,7 @@
 						}
 					}
 				});
+				document.getElementById('portalContainer').innerHTML = "";
 				for (count = 0; count < msg.children.length; count++){
 					document.getElementById('portalContainer').innerHTML += "<a href='#"+msg.children[count].user+"'>"+msg.children[count].user+"'s Spaces</a>";
 					if (count < (msg.children.length-1)){
