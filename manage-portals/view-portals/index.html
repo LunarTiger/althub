@@ -49,7 +49,7 @@
     var socket = io.connect('https://shanesedit.org:8008');
     socket.emit('portals');
     socket.on('portals',function(msg){
-        document.getElementById('formContainer').innerHTML = '<pre style="text-align: left; color: #fff; background-color: #000">'+JSON.stringify(msg,null,4)+'</pre>';
+        document.getElementById('formContainer').innerHTML = '<pre style="text-align: left; color: #fff; background-color: #000; border: 0">'+JSON.stringify(msg,null,4)+'</pre>';
     })
 </script>
 </body>
