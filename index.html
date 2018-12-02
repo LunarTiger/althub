@@ -17,6 +17,13 @@
 			table {border: 4 solid #00ff00;margin-left:auto;margin-right:auto;}
 			th {padding: 10px;border: 4px solid #006900;text-align:center}
 			hr {border-top: 1px dashed #006900;border-bottom: 0;border-left: 0;border-right: 0;}
+			/* navbar */
+			ul.navbar {list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color: #000;}
+			li.navbar {border-right: 1px dashed #006900;display: inline-block;}
+			li.navbar:last-child {border-right:none;}
+			li.navbar a {display: block;color: #00be00;text-align: center;padding: 14px 16px;text-decoration: none;}
+			/* Change the link color to on hover */
+			li.navbar a:hover {background-color: #003300;}
 			/*coustom scrollbar*/
 			/* width */
 			::-webkit-scrollbar {width: 10px;}
@@ -35,7 +42,13 @@
 		<meta name="Lunar's 2D Hub" content="Lunar's 2D Hub">
 	</head>
 	<body>
-		<h1><a href='altspace://account.altvr.com/api/spaces/lunars-hub'><button type="button" name="hub">Lunar's Hub</button></a></h1><br><hr />
+		<h1><a href='altspace://account.altvr.com/api/spaces/lunars-hub'><button type="button" name="hub">Lunar's Hub</button></a></h1>
+		<br>
+		<hr />
+		<nav>
+			<ul class="navbar" id="navigation">
+			</ul>
+        </nav>
 		<section id='portalContainer' style='text-align:center;background-color: #000000;color: #00ff00;border: 0px;'><h2>Please wait while<br>the site builds itself.</h2></section>
 		<hr style="height:50px; visibility:hidden;" />
 		<script src="https://shanesedit.org:8008/socket.io/socket.io.js"></script>
@@ -63,12 +76,8 @@
 				});
 				document.getElementById('portalContainer').innerHTML = "";
 				for (count = 0; count < msg.children.length; count++){
-					document.getElementById('portalContainer').innerHTML += "<a href='#"+msg.children[count].user+"'>"+msg.children[count].user+"'s Spaces</a>";
-					if (count < (msg.children.length-1)){
-						document.getElementById('portalContainer').innerHTML += "&nbsp;&nbsp;|&nbsp;&nbsp;";
-					}
+					document.getElementById('navigation').innerHTML += "<li class='navbar'><a href='#"+msg.children[count].user+"'>"+msg.children[count].user+"'s Spaces</a></li>";
 				}
-				document.getElementById('portalContainer').innerHTML += "<hr /><br>";
 				document.getElementById('portalContainer').innerHTML += "<h2>Featured Spaces</h2>";
 				for (count = 0; count < msg.portals.length; count++){
 					makeButton(msg.portals[count].name,msg.portals[count].space_id);
